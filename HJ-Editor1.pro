@@ -1,4 +1,4 @@
-#-------------------------------------------------
+﻿#-------------------------------------------------
 #
 # Project created by QtCreator 2017-07-02T19:19:03
 #
@@ -21,27 +21,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+INCLUDEPATH += src/
+INCLUDEPATH += img/
+INCLUDEPATH += include/
 
+SOURCES += src/main.cpp \
+        src/mainwindow.cpp \
+        src/codeeditor.cpp \
+        src/highlighter.cpp \
+        src/completelistwidget.cpp \
+        src/console.cpp
 
-SOURCES += \
-        main.cpp \
-        mainwindow.cpp \
-    codeeditor.cpp \
-    highlighter.cpp \
-    completelistwidget.cpp \
-    console.cpp
+HEADERS += include/mainwindow.h \
+        include/codeeditor.h \
+        include/highlighter.h \
+        include/completelistwidget.h \
+        include/console.h
 
-HEADERS += \
-        mainwindow.h \
-    codeeditor.h \
-    highlighter.h \
-    completelistwidget.h \
-    console.h
+FORMS += ui/mainwindow.ui
 
-FORMS += \
-        mainwindow.ui
+RESOURCES += image.qrc
 
-RESOURCES += \
-    image.qrc
-
-ICON = icon.icns

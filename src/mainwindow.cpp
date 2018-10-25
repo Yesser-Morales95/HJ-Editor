@@ -64,8 +64,8 @@ void MainWindow::resizeEvent(QResizeEvent *event){
   ui->outputText->setGeometry(10,ui->editor->height()+10,this->width()-20,80);
 }
 void MainWindow::initFileData(){
-  fileName=tr("Untitled.cpp");
-  filePath=tr("~/Desktop/Untitled.cpp");
+  fileName=tr("Untitled.rrun");
+  filePath=tr("~/Documents/Untitled.rrun");
   fileSaved=true;
   isRunning=false;
 }
@@ -76,7 +76,7 @@ void MainWindow::redo(){
   ui->editor->redo();
 }
 void MainWindow::saveFile(){
-  QString savePath=QFileDialog::getSaveFileName(this,tr("选择保存路径与文件名"),fileName,tr("Cpp File(*.cpp *.c *.h)"));
+  QString savePath=QFileDialog::getSaveFileName(this,tr("Elija la ruta y nombre del archivo a guardar"),fileName,tr("Rrun File(*.rrun)"));
   if(!savePath.isEmpty()){
       QFile out(savePath);
       out.open(QIODevice::WriteOnly|QIODevice::Text);
@@ -84,10 +84,10 @@ void MainWindow::saveFile(){
       str<<ui->editor->toPlainText();
       out.close();
       fileSaved=true;
-      QRegularExpression re(tr("(?<=\\/)\\w+\\.cpp|(?<=\\/)\\w+\\.c|(?<=\\/)\\w+\\.h"));
+      QRegularExpression re(tr("(?<=\\/)\\w+\\.rrun"));
       fileName=re.match(savePath).captured();
       filePath=savePath;
-      this->setWindowTitle(tr("HJ Editor - ")+fileName);
+      this->setWindowTitle(tr("Robot Script Editor - ")+fileName);
     }
 }
 void MainWindow::newFile(){
@@ -98,18 +98,18 @@ void MainWindow::newFile(){
 }
 void MainWindow::openFile(){
   if(!fileSaved){
-      if(QMessageBox::Save==QMessageBox::question(this,tr("文件未保存"),tr("当前文件没有保存，是否保存？"),QMessageBox::Save,QMessageBox::Cancel))
+      if(QMessageBox::Save==QMessageBox::question(this,tr("Archivo no guardado"),tr("Guardar Archivo Actual"),QMessageBox::Save,QMessageBox::Cancel))
         saveFile();
     }
-  QString openPath=QFileDialog::getOpenFileName(this,tr("选择要打开的文件"),filePath,tr("Cpp File(*.cpp *.c *.h)"));
+  QString openPath=QFileDialog::getOpenFileName(this,tr("Seleccione el archivo para abrir"),filePath,tr("Rrun File(*.rrun)"));
   if(!openPath.isEmpty()){
       QFile in(openPath);
       in.open(QIODevice::ReadOnly|QIODevice::Text);
       QTextStream str(&in);
       ui->editor->setPlainText(str.readAll());
-      QRegularExpression re(tr("(?<=\\/)\\w+\\.cpp|(?<=\\/)\\w+\\.c|(?<=\\/)\\w+\\.h"));
+      QRegularExpression re(tr("(?<=\\/)\\w+\\.rrun"));
       fileName=re.match(openPath).captured();
-      this->setWindowTitle(tr("HJ Editor - ")+fileName);
+      this->setWindowTitle(tr("Robot Script Editor - ")+fileName);
       filePath=openPath;
       fileSaved=true;
     }
@@ -164,11 +164,11 @@ void MainWindow::inputData(QString data){
 }
 void MainWindow::closeEvent(QCloseEvent *event){
   if(!fileSaved){
-      if(QMessageBox::Save==QMessageBox::question(this,tr("未保存就要退出？"),tr("当前文件没有保存，是否保存？不保存文件改动将会丢失"),QMessageBox::Save,QMessageBox::Cancel))
+      if(QMessageBox::Save==QMessageBox::question(this,tr("¿Salir sin guardar?"),tr("El archivo actual no se ha guardado"),QMessageBox::Save,QMessageBox::Cancel))
         saveFile();
       fileSaved=true;
     }
 }
 void MainWindow::about(){
-  QMessageBox::information(this,tr("关于"),tr(" HJ-Editor v1.0 \n 何振邦倾情奉献 \n更多信息访问huajihome.cn"),QMessageBox::Ok);
+  QMessageBox::information(this,tr("About"),tr(" Yeser M. v1.1 \n Universidad Nacional de Ingenieria \nmyalfredo03@ieee.org"),QMessageBox::Ok);
 }

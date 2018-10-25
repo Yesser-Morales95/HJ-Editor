@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>HJ Editor</string>
+   <string>Robot Script Editor</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../image.qrc">
+    <normaloff>:/img/UNI-Script.png</normaloff>:/img/UNI-Script.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="CodeEditor" name="editor">
@@ -99,8 +103,8 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNewFile">
    <property name="icon">
-    <iconset resource="image.qrc">
-     <normaloff>:/image/New.png</normaloff>:/image/New.png</iconset>
+    <iconset resource="../image.qrc">
+     <normaloff>:/img/new.png</normaloff>:/img/new.png</iconset>
    </property>
    <property name="text">
     <string>Nuevo</string>
@@ -114,8 +118,8 @@
   </action>
   <action name="actionOpen">
    <property name="icon">
-    <iconset resource="image.qrc">
-     <normaloff>:/image/Open.png</normaloff>:/image/Open.png</iconset>
+    <iconset resource="../image.qrc">
+     <normaloff>:/img/open.png</normaloff>:/img/open.png</iconset>
    </property>
    <property name="text">
     <string>Abrir</string>
@@ -140,8 +144,8 @@
   </action>
   <action name="actionUndo">
    <property name="icon">
-    <iconset resource="image.qrc">
-     <normaloff>:/image/Undo.png</normaloff>:/image/Undo.png</iconset>
+    <iconset resource="../image.qrc">
+     <normaloff>:/img/revoke.png</normaloff>:/img/revoke.png</iconset>
    </property>
    <property name="text">
     <string>Atras</string>
@@ -152,8 +156,8 @@
   </action>
   <action name="actionRedo">
    <property name="icon">
-    <iconset resource="image.qrc">
-     <normaloff>:/image/Redo.png</normaloff>:/image/Redo.png</iconset>
+    <iconset resource="../image.qrc">
+     <normaloff>:/img/recovery.png</normaloff>:/img/recovery.png</iconset>
    </property>
    <property name="text">
     <string>Adelante</string>
@@ -180,8 +184,8 @@
   </action>
   <action name="actionSave_File">
    <property name="icon">
-    <iconset resource="image.qrc">
-     <normaloff>:/image/Save.png</normaloff>:/image/Save.png</iconset>
+    <iconset resource="../image.qrc">
+     <normaloff>:/img/floppy-disk.png</normaloff>:/img/floppy-disk.png</iconset>
    </property>
    <property name="text">
     <string>Guardar</string>
@@ -195,8 +199,8 @@
   </action>
   <action name="actionRun">
    <property name="icon">
-    <iconset resource="image.qrc">
-     <normaloff>:/image/Run.png</normaloff>:/image/Run.png</iconset>
+    <iconset resource="../image.qrc">
+     <normaloff>:/img/run.png</normaloff>:/img/run.png</iconset>
    </property>
    <property name="text">
     <string>Ejecutar Simulación</string>
@@ -210,7 +214,7 @@
   </action>
   <action name="actionSetting">
    <property name="icon">
-    <iconset resource="image.qrc">
+    <iconset>
      <normaloff>:/image/Setting.png</normaloff>:/image/Setting.png</iconset>
    </property>
    <property name="text">
@@ -238,7 +242,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="image.qrc"/>
+  <include location="../image.qrc"/>
  </resources>
  <connections/>
 </ui>
