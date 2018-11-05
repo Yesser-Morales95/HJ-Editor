@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>630</width>
-    <height>508</height>
+    <width>597</width>
+    <height>662</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Robot Script Editor</string>
+   <string notr="true">Robot Script Editor</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../image.qrc">
@@ -23,16 +23,25 @@
      <rect>
       <x>10</x>
       <y>0</y>
-      <width>611</width>
-      <height>331</height>
+      <width>600</width>
+      <height>700</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Serif</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
     </property>
    </widget>
    <widget class="Console" name="outputText">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>340</y>
+      <y>500</y>
       <width>611</width>
       <height>81</height>
      </rect>
@@ -44,7 +53,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>630</width>
+     <width>597</width>
      <height>19</height>
     </rect>
    </property>
@@ -75,7 +84,13 @@
    <addaction name="menuEdit_O"/>
    <addaction name="menuHelp_H"/>
   </widget>
+  <widget class="QStatusBar" name="statusBar"/>
   <widget class="QToolBar" name="mainToolBar">
+   <property name="font">
+    <font>
+     <family>Tlwg Mono</family>
+    </font>
+   </property>
    <property name="iconSize">
     <size>
      <width>24</width>
@@ -83,7 +98,7 @@
     </size>
    </property>
    <property name="toolButtonStyle">
-    <enum>Qt::ToolButtonIconOnly</enum>
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -95,12 +110,13 @@
    <addaction name="actionOpen"/>
    <addaction name="actionSave_File"/>
    <addaction name="separator"/>
+   <addaction name="actionSelectAll"/>
    <addaction name="actionUndo"/>
    <addaction name="actionRedo"/>
    <addaction name="actionRun"/>
    <addaction name="actionSetting"/>
+   <addaction name="actionError_Datos"/>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNewFile">
    <property name="icon">
     <iconset resource="../image.qrc">
@@ -111,6 +127,14 @@
    </property>
    <property name="toolTip">
     <string>Crear nuevo archivo Script LVR</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Tlwg Mono</family>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
    </property>
    <property name="shortcut">
     <string>Ctrl+N</string>
@@ -132,11 +156,15 @@
    </property>
   </action>
   <action name="actionSelectAll">
+   <property name="icon">
+    <iconset resource="../image.qrc">
+     <normaloff>:/img/format.png</normaloff>:/img/format.png</iconset>
+   </property>
    <property name="text">
-    <string>Seleccionar Todo</string>
+    <string>Seleccionar </string>
    </property>
    <property name="toolTip">
-    <string>选择全部文本</string>
+    <string>Seleccionar Todo</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+A</string>
@@ -167,6 +195,10 @@
    </property>
   </action>
   <action name="actionAbout">
+   <property name="icon">
+    <iconset resource="../image.qrc">
+     <normaloff>:/img/learning.png</normaloff>:/img/learning.png</iconset>
+   </property>
    <property name="text">
     <string>About Editor</string>
    </property>
@@ -175,6 +207,10 @@
    </property>
   </action>
   <action name="actionDocument">
+   <property name="icon">
+    <iconset resource="../image.qrc">
+     <normaloff>:/img/information.png</normaloff>:/img/information.png</iconset>
+   </property>
    <property name="text">
     <string>Documentación</string>
    </property>
@@ -203,7 +239,7 @@
      <normaloff>:/img/run.png</normaloff>:/img/run.png</iconset>
    </property>
    <property name="text">
-    <string>Ejecutar Simulación</string>
+    <string>Ejecutar</string>
    </property>
    <property name="toolTip">
     <string>Ejecutar Simulación</string>
@@ -225,6 +261,19 @@
    </property>
    <property name="visible">
     <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionError_Datos">
+   <property name="icon">
+    <iconset resource="../image.qrc">
+     <normaloff>:/img/error.png</normaloff>
+     <activeon>:/img/error_red.png</activeon>:/img/error.png</iconset>
+   </property>
+   <property name="text">
+    <string>Error Datos</string>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Este icono se activara si se ingreso un parámetro al robot fuera de su espacio de trabajo.&lt;/p&gt;&lt;p&gt;Favor Leer la Hoja de Datos del robot a controlar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </action>
  </widget>

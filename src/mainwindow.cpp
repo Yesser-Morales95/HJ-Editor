@@ -52,7 +52,8 @@ void MainWindow::setUpHighlighter(){
   QFont font;
   font.setFamily("Courier");
   font.setFixedPitch(true);
-  //font.setPointSize(20);
+  font.setPointSize(14);
+  font.setBold(true);
   ui->editor->setFont(font);
   ui->editor->setTabStopWidth(fontMetrics().width(QLatin1Char('9'))*4);
   highlighter=new Highlighter(ui->editor->document());
@@ -121,18 +122,18 @@ void MainWindow::run(){
       return;
     }
   if(!fileSaved){
-      if(QMessageBox::Save==QMessageBox::question(this,tr("文件未保存"),tr("文件保存后才能运行，是否保存？"),QMessageBox::Save,QMessageBox::Cancel))
+      if(QMessageBox::Save==QMessageBox::question(this,tr("Archivo no guardado"),tr("Guardar Archivo Actual？"),QMessageBox::Save,QMessageBox::Cancel))
         saveFile();
     }
   if(fileSaved){
     //if(process!=nullptr)delete process;
     isRunning=true;
-    ui->statusBar->showMessage(tr("程序运行中..."));
+    ui->statusBar->showMessage(tr("Programa En Ejecucion..."));
     ui->outputText->clear();
     output.clear();
     error.clear();
     QString buildPath;
-    QRegularExpression re(tr(".*(?=\\.cpp)|.*(?=\\.c)|.*(?=\\.h)"));
+    QRegularExpression re(tr(".*(?=\\.rrun)|"));
     buildPath=re.match(filePath).captured();
     //qDebug()<<buildPath;
     process.start("bash", QStringList() << "-c" << QString(tr("g++ ")+filePath+tr(" -o ")+buildPath+tr(";")+buildPath));

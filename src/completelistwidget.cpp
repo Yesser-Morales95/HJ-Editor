@@ -4,7 +4,7 @@ CompleteListWidget::CompleteListWidget(QWidget *parent):QListWidget(parent)
 {
   p=(QPlainTextEdit*)parent;
   backgroundColor=Qt::lightGray;//.setRgb(34,39,49);
-  highlightColor.setRgb(22,165,248);
+  highlightColor.setRgb(102, 153, 255);
   QPalette palette=this->palette();
   palette.setColor(QPalette::Active,QPalette::Highlight,highlightColor);
   palette.setColor(QPalette::Inactive,QPalette::Highlight,highlightColor);

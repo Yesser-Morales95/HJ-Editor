@@ -6,12 +6,12 @@ Highlighter::Highlighter(QTextDocument *parent)
 {
     HighlightingRule rule;
 
-    keywordFormat.setForeground(QColor(201,81,116));
+    keywordFormat.setForeground(QColor(51, 204, 51));
     keywordFormat.setFontWeight(QFont::Bold);
     QStringList keywordPatterns;
-    keywordPatterns << "\\bchar\\b" << "\\bclass\\b" << "\\bconst\\b"
-                    << "\\bdouble\\b" << "\\benum\\b" << "\\bexplicit\\b"
-                    << "\\bfriend\\b" << "\\binline\\b" << "\\bint\\b"
+    keywordPatterns << "\\bMoveL\\b" << "\\bMoveJ\\b" << "\\bMoveC\\b"
+                   << "\\bp \\b" << "\\bv \\b" << "\\btool0\\b"
+            /*         << "\\bfriend\\b" << "\\binline\\b" << "\\bint\\b"
                     << "\\blong\\b" << "\\bnamespace\\b" << "\\boperator\\b"
                     << "\\bprivate\\b" << "\\bprotected\\b" << "\\bpublic\\b"
                     << "\\bshort\\b" << "\\bsignals\\b" << "\\bsigned\\b"
@@ -22,7 +22,7 @@ Highlighter::Highlighter(QTextDocument *parent)
                     <<"\\bsizeof\\b"<<"\\bif\\b"<<"\\bfor\\b"<<"\\bforeach\\b"<<"\\bwhile\\b"<<"\\bdo\\b"<<"\\bcase\\b"
                     <<"\\bbreak\\b"<<"\\bcontinue\\b"<<"\\btemplate\\b"<<"\\bdelete\\b"<<"\\bnew\\b"
                     <<"\\bdefault\\b"<<"\\btry\\b"<<"\\breturn\\b"<<"\\bthrow\\b"<<"\\bcatch\\b"<<"\\bgoto\\b"<<"\\belse\\b"
-                    <<"\\bextren\\b"<<"\\bthis\\b"<<"\\bswitch\\b"<<"\\binclude\\b"<<"\\bdefine\\b";
+                    <<"\\bextren\\b"<<"\\bthis\\b"<<"\\bswitch\\b"<<"\\binclude\\b"<<"\\bdefine\\b"*/;
     foreach (const QString &pattern, keywordPatterns) {
         rule.pattern = QRegularExpression(pattern);
         rule.format = keywordFormat;
@@ -34,7 +34,7 @@ Highlighter::Highlighter(QTextDocument *parent)
 //! [2]
     //类 规则
     classFormat.setFontWeight(QFont::Bold);
-    classFormat.setForeground(Qt::darkMagenta);
+    classFormat.setForeground(Qt::blue);
     rule.pattern = QRegularExpression("(?<=class\\s)\\w*");
     rule.format = classFormat;
     highlightingRules.append(rule);

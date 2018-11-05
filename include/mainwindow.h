@@ -44,12 +44,12 @@ public slots:
   void changeSaveState(){
     //qDebug()<<"changed";
     if(firstLoad&&fileSaved){
-        this->setWindowTitle(tr("HJ Editor - ")+fileName);
+        this->setWindowTitle(tr("Robot Editor Script - ")+fileName);
         firstLoad=false;
         return;
       }
     fileSaved=false;
-    this->setWindowTitle(tr("HJ Editor - ")+fileName+tr("*"));
+    this->setWindowTitle(tr("Robot Editor Script - ")+fileName+tr("*"));
   }
 
   //---------工具栏响应函数---------

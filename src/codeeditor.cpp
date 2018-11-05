@@ -100,7 +100,7 @@ void CodeEditor::highlightCurrentLine()
     if (!isReadOnly()) {
         QTextEdit::ExtraSelection selection;
 
-        QColor lineColor = QColor(Qt::red).lighter(160);
+        QColor lineColor = QColor(Qt::cyan).lighter(59);
 
         selection.format.setBackground(lineColor);
         selection.format.setProperty(QTextFormat::FullWidthSelection, true);
@@ -234,9 +234,9 @@ void CodeEditor::keyPressEvent(QKeyEvent *event){
     }
 }
 void CodeEditor::setUpCompleteList(){
-  completeList<< "char" << "class" << "const"
-              << "double" << "enum" << "explicit"
-              << "friend" << "inline" << "int"
+  completeList<< "MoveJ" << "MoveL" << "MoveC"
+              << "p" << "v" << "tool0"
+       /*        << "friend" << "inline" << "int"
               << "long" << "namespace" << "operator"
               << "private" << "protected" << "public"
               << "short" << "signals" << "signed"
@@ -247,7 +247,7 @@ void CodeEditor::setUpCompleteList(){
               <<"sizeof"<<"if"<<"for"<<"foreach"<<"while"<<"do"<<"case"
               <<"break"<<"continue"<<"template"<<"delete"<<"new"
               <<"default"<<"try"<<"return"<<"throw"<<"catch"<<"goto"<<"else"
-              <<"extren"<<"this"<<"switch"<<"#include <>"<<"#include \"\""<<"#define"<<"iostream";
+              <<"extren"<<"this"<<"switch"<<"#include <>"<<"#include \"\""<<"#define"<<"iostream"*/;
 }
 //得到当前光标位置的字符串
 QString CodeEditor::getWordOfCursor(){

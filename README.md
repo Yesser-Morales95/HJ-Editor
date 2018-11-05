@@ -1,12 +1,12 @@
 # HJ-Editor
-简单的C++ IDE，带联想、代码高亮、编译运行等功能
+GUI Robot Editor Script
 
-联想：
+Robot Code
 ![](HJ-Editor-Code.PNG)
 
-运行：
+Robot Run
 ![](HJ-Editor-Run.PNG)
 
-编译运行功能需要安装好g++，在Mac下无需更改设置，win下需要自己配置g++路径
+Script Run and publish Parameters like Rapid to Robot in Gazebo Simulator
 
 
